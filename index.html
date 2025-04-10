@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMSA</title>
+    <title>LMSWA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,13 +28,13 @@
         }
     </script>
 </head>
-<body class="bg-darkBg text-gray-100 dark custom-dark-mode">
-    <div class="flex flex-col h-screen">
+<body class="bg-darkBg text-gray-100 dark custom-dark-mode" style="height: 100svh">
+    <div id="content-container" class="flex flex-col h-screen">
         <!-- Header -->
         <header class="bg-darkSecondary p-4 flex justify-between items-center animate-fade-in">
             <div class="flex items-center">
                 <img src="icon22.png" alt="LMSA Icon" class="w-8 h-8 mr-2">
-                <h1 class="text-2xl font-bold">LMSA</h1>
+                <h1 class="text-2xl font-bold">LMSWA</h1>
             </div>
             <button id="sidebar-toggle" class="md:hidden text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none" aria-label="Toggle Sidebar">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +96,7 @@
                 </div>
 
                 <!-- Input area -->
-                <div class="border-t border-darkTertiary animate-fade-in">
+                <div id="text-input" class="border-t border-darkTertiary animate-fade-in">
                     <form id="chat-form" class="flex p-4">
                         <div class="flex-grow relative">
                             <input type="text" id="user-input" class="w-full bg-darkTertiary text-gray-100 border border-gray-600 rounded-l-lg px-4 py-2 focus:outline-none" placeholder="Type your message..." aria-label="Type your message" autocomplete="off">
@@ -211,10 +211,10 @@
     <div id="help-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden animate-fade-in" aria-labelledby="help-title" role="dialog" aria-modal="true">
         <div class="bg-darkSecondary p-6 rounded-lg w-[800px] max-w-[95%] max-h-[90vh] shadow-lg overflow-hidden flex flex-col">
             <h2 id="help-title" class="text-2xl font-bold mb-4 flex items-center sticky top-0 bg-darkSecondary z-10">
-                <i class="fas fa-question-circle mr-2 text-blue-500"></i>Welcome to LMSA!
+                <i class="fas fa-question-circle mr-2 text-blue-500"></i>Welcome to LMSWA!
             </h2>
             <div class="space-y-6 overflow-y-auto pr-4 flex-grow">
-                <p class="text-gray-300">Quick guide to using LMSA:</p>
+                <p class="text-gray-300">Quick guide to using LMSWA:</p>
                 
                 <div class="space-y-4">
                     <section>
@@ -256,12 +256,12 @@
     <div id="about-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden animate-fade-in" aria-labelledby="about-title" role="dialog" aria-modal="true">
         <div class="bg-darkSecondary p-6 rounded-lg w-96 max-w-[90%] shadow-lg">
             <h2 id="about-title" class="text-xl font-bold mb-4 flex items-center">
-                <i class="fas fa-info-circle mr-2 text-blue-500"></i>About LMSA
+                <i class="fas fa-info-circle mr-2 text-blue-500"></i>About LMSWA
             </h2>
             <div class="space-y-4 text-gray-300">
-                <p class="text-center">© 2025 TechRay Apps LLC</p>
-                <p class="text-center">Need help? <a href="https://github.com/techcow2/lmsa/issues" target="_blank" class="text-blue-400 hover:text-blue-300">Open an issue on GitHub</a></p>
-                <p class="text-center"><a href="https://github.com/techcow2/lmsa/blob/main/LICENSE" target="_blank" class="text-blue-400 hover:text-blue-300">MIT License</a></p>
+                <p class="text-center">© 2025 Tobias "CodeF0x" Oettl</p>
+                <p class="text-center">Need help? <a href="https://github.com/CodeF0x/lmsa/issues" target="_blank" class="text-blue-400 hover:text-blue-300">Open an issue on GitHub</a></p>
+                <p class="text-center"><a href="https://github.com/techcow2/CodeF0x/blob/main/LICENSE" target="_blank" class="text-blue-400 hover:text-blue-300">MIT License</a></p>
             </div>
             <div class="mt-6">
                 <button id="close-about" class="w-full bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 focus:outline-none transition-all duration-300 ease-in-out">

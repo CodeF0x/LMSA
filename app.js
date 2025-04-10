@@ -45,7 +45,7 @@ const savedPort = localStorage.getItem('serverPort');
 if (serverIpInput && serverPortInput) {
     if (savedIp) serverIpInput.value = savedIp;
     if (savedPort) serverPortInput.value = savedPort;
-    
+
     if (savedIp && savedPort) {
         API_URL = `http://${savedIp}:${savedPort}/v1/chat/completions`;
     }
@@ -58,7 +58,7 @@ if (serverIpInput && serverPortInput) {
 function updateServerUrl() {
     const ip = serverIpInput.value.trim();
     const port = serverPortInput.value.trim();
-    
+
     if (ip && port) {
         API_URL = `http://${ip}:${port}/v1/chat/completions`;
         localStorage.setItem('serverIp', ip);
@@ -82,15 +82,60 @@ let actionToPerform = null;
 let abortController = null;
 
 // Prevent default touch behavior except for the messages container
-document.body.addEventListener('touchmove', function(e) {
+document.body.addEventListener('touchmove', function (e) {
     if (e.target.closest('#messages') === null) {
         e.preventDefault();
     }
 }, { passive: false });
 
+// This is a hack to stop the input field from sliding below Safari's navigation UI element.
+// Couldn't get padding-bottom: env(safe-area-inset-bottom) to work, always reports back as 0px
+document.addEventListener('DOMContentLoaded', () => {
+    function observeVisibility(el) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Element is fully visible
+                    console.log("Element is fully visible!");
+                } else {
+                    // Element is not fully visible
+                    let currentPaddingBottom = parseInt(getComputedStyle(textInput).paddingBottom || 0);
+                    textInput.style.paddingBottom = `${++currentPaddingBottom}px`;
+                    alert("Element is not fully visible!");
+                }
+            });
+        }, {
+            root: null, // viewport
+            threshold: 1.0, // 100% of the element must be visible
+        });
+
+        observer.observe(el);
+    }
+
+    function addSafeAreaBottomPadding() {
+        const textInput = document.getElementById('text-input');
+
+
+        observeVisibility(textInput);
+        // let i = 0;
+        // // if (/iPhone|iPad/.test(navigator.userAgent)) {
+        //     while (true) {
+        //         if (i === 1000000) {
+        //             break;
+        //         }
+        //         let currentPaddingBottom = parseInt(getComputedStyle(textInput).paddingBottom || 0);
+        //         textInput.style.paddingBottom = `${++currentPaddingBottom}px`;
+        //         i++;
+        //     }
+        // // }
+    }
+
+    addSafeAreaBottomPadding();
+});
+
 // Allow scrolling within the messages container
 if (messagesContainer) {
-    messagesContainer.addEventListener('touchmove', function(e) {
+    messagesContainer.addEventListener('touchmove', function (e) {
         e.stopPropagation();
     }, { passive: true });
 }
@@ -113,7 +158,7 @@ function initializeTemperature() {
         temperatureInput.addEventListener('input', () => {
             const inputValue = temperatureInput.value;
             const parsedValue = parseFloat(inputValue);
-            
+
             if (!isNaN(parsedValue) && parsedValue >= 0 && parsedValue <= 2.0 && /^\d*\.?\d{0,1}$/.test(inputValue)) {
                 temperature = parsedValue;
                 temperatureValue.textContent = temperature.toFixed(1);
@@ -379,7 +424,7 @@ function toggleSidebar() {
     sidebar.classList.toggle('active');
     document.body.classList.toggle('sidebar-open');
     settingsModal.classList.add('hidden');
-    
+
     if (sidebar.classList.contains('active')) {
         sidebar.classList.add('animate-slide-in');
         sidebar.classList.remove('animate-slide-out');
@@ -396,7 +441,7 @@ function appendMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add(sender, 'animate-fade-in', 'mb-4', 'p-4', 'rounded-lg');
     messageElement.innerHTML = sanitizeInput(message);
-    
+
     // Add long-press event listeners for AI messages
     if (sender === 'ai') {
         messageElement.addEventListener('touchstart', handleTouchStart);
@@ -406,7 +451,7 @@ function appendMessage(sender, message) {
         messageElement.addEventListener('mouseup', handleMouseUp);
         messageElement.addEventListener('mouseleave', handleMouseLeave);
     }
-    
+
     messagesContainer.insertBefore(messageElement, messagesContainer.firstChild);
     initializeCodeMirror(messageElement);
     scrollToBottom();
@@ -418,49 +463,49 @@ function sanitizeInput(input) {
     const div = document.createElement('div');
     div.textContent = input;
     let sanitized = div.innerHTML;
-    
+
     // Handle thinking sections
     sanitized = sanitized.replace(/Let's approach this step by step:\n/g, '<div class="think"><div class="reasoning-intro">Let\'s approach this step by step:</div>');
     sanitized = sanitized.replace(/^(\d+\)\s*.*?)(?=\n\d+\)|$)/gm, '<div class="reasoning-step">$1</div>');
-    
+
     // Handle code blocks with language specification
     sanitized = sanitized.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
         return `<pre><code class="language-${language || 'plaintext'}">${code.trim()}</code></pre>`;
     });
-    
+
     // Handle inline code
     sanitized = sanitized.replace(/`([^`]+)`/g, '<code>$1</code>');
-    
+
     // Handle headers
     sanitized = sanitized.replace(/^### (.+)$/gm, '<h3>$1</h3>');
     sanitized = sanitized.replace(/^## (.+)$/gm, '<h2>$1</h2>');
     sanitized = sanitized.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-    
+
     // Handle lists
     sanitized = sanitized.replace(/^\* (.+)$/gm, '<li>$1</li>');
     sanitized = sanitized.replace(/^- (.+)$/gm, '<li>$1</li>');
     sanitized = sanitized.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-    
+
     // Wrap lists in appropriate containers
     sanitized = sanitized.replace(/(<li>.*?<\/li>\n*)+/g, '<ul>$&</ul>');
-    
+
     // Handle emphasis and strong
     sanitized = sanitized.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     sanitized = sanitized.replace(/\*(.+?)\*/g, '<em>$1</em>');
     sanitized = sanitized.replace(/_(.+?)_/g, '<em>$1</em>');
-    
+
     // Handle links
     sanitized = sanitized.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" class="text-blue-400 hover:text-blue-300">$1</a>');
-    
+
     // Handle paragraphs
     sanitized = sanitized.replace(/\n\n/g, '</p><p>');
     sanitized = '<p>' + sanitized + '</p>';
-    
+
     // Close thinking section div if it was opened
     if (sanitized.includes('think')) {
         sanitized += '</div>';
     }
-    
+
     return sanitized;
 }
 
@@ -540,11 +585,11 @@ function updateChatHistoryUI() {
     Object.entries(chatHistoryData).forEach(([id, messages]) => {
         const button = document.createElement('button');
         button.classList.add('w-full', 'text-left', 'py-2', 'px-4', 'hover:bg-gray-700', 'focus:outline-none', 'focus:ring-2', 'focus:ring-gray-500', 'text-gray-300', 'animate-fade-in');
-        
+
         const chatTitle = document.createElement('span');
         chatTitle.textContent = messages[0].content.substring(0, 30) + (messages[0].content.length > 30 ? '...' : '');
         button.appendChild(chatTitle);
-        
+
         const trashIcon = document.createElement('i');
         trashIcon.classList.add('fas', 'fa-trash', 'trash-icon');
         trashIcon.addEventListener('click', (e) => {
@@ -555,7 +600,7 @@ function updateChatHistoryUI() {
             }
         });
         button.appendChild(trashIcon);
-        
+
         button.addEventListener('click', () => loadChat(id));
         chatHistory.appendChild(button);
     });
@@ -629,10 +674,10 @@ function lazyLoadMessages(messages, startIndex, chunkSize = 10) {
 
 // Close sidebar when clicking outside on mobile
 document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768 && 
-        sidebar && 
-        !sidebar.classList.contains('hidden') && 
-        !e.target.closest('#sidebar') && 
+    if (window.innerWidth <= 768 &&
+        sidebar &&
+        !sidebar.classList.contains('hidden') &&
+        !e.target.closest('#sidebar') &&
         !e.target.closest('#sidebar-toggle')) {
         toggleSidebar();
     }
@@ -802,13 +847,13 @@ if (regenerateTextButton) {
                 while (messagesContainer.children.length > messageIndex) {
                     messagesContainer.removeChild(messagesContainer.firstChild);
                 }
-                
+
                 // Remove corresponding messages from chatHistoryData
                 chatHistoryData[currentChatId] = chatHistoryData[currentChatId].slice(0, messageIndex * 2);
-                
+
                 // Get the last user message
                 const lastUserMessage = chatHistoryData[currentChatId][chatHistoryData[currentChatId].length - 2].content;
-                
+
                 // Regenerate the AI response
                 contextMenu.style.display = 'none';
                 await generateAIResponse(lastUserMessage);
@@ -992,7 +1037,7 @@ document.addEventListener('DOMContentLoaded', () => {
             actionToPerform = null; // Reset the action
         });
     }
-    
+
 
     if (cancelActionButton) {
         cancelActionButton.addEventListener('click', hideConfirmationModal);

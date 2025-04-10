@@ -1,4 +1,4 @@
-# LMSA - LM Studio Android Front-End
+# LMSWA - LM Studio Web Front-End for mobile devices
 
 ## Table of Contents
 
