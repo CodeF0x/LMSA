@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { getFirstIPv4 } from './ip.js';
 
 const app = express();
 const port = 3000;
@@ -12,6 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`LMSA available via http://<llm-server-ip>:${port} in your local network`);
+  const ip = getFirstIPv4();
+  console.log(`LMWSA available via http://${ip ? ip : '<llm-server-ip>'}:${port} in your local network`);
 });
 
