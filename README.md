@@ -1,6 +1,10 @@
 # LMSWA - LM Studio Web Front-End for mobile devices
 
-# Table of Contents
+## Disclaimer
+
+This is a fork and 99.9% of all work was done by [techcow2](https://github.com/techcow2). I was in need of talking to my local LM Studio via my phone and found [the original repository](https://github.com/techcow2/lmsa) which I've expanded by essentially wrapping a webserver around the source code to serve it via HTTP to make it available in my iPhone's web browser.
+
+## Table of Contents
 
 - [Overview](#overview)
 - [Quick Tutorial Video](#quick-tutorial-video)
@@ -44,11 +48,15 @@
 
 ## Overview
 
-LMSA (LM Studio Assistant) is an open-source Android front-end application for LM Studio. It provides a clean, user-friendly interface to interact with language models on your Android device. LMSA is designed with privacy in mind, offering a tracking-free and ad-free experience for users who want to leverage the power of large language models on their mobile devices.
+LMSWA (LM Studio Web Assistant) is an open-source web front-end application for LM Studio. It provides a clean, user-friendly interface to interact with language models on your Android device. LMWSA is designed with privacy in mind, offering a tracking-free and ad-free experience for users who want to leverage the power of large language models on their mobile devices.
 
 ## Quick Tutorial Video
 
 [![Watch the video](https://img.youtube.com/vi/qoXfa6In5BM/0.jpg)](https://www.youtube.com/watch?v=qoXfa6In5BM)
+
+(It shows the usage of the original Android app, however, apart from the initial setup, the usage is identical to the web app)
+
+## Updates
 
 ---
 
@@ -78,9 +86,9 @@ LMSA (LM Studio Assistant) is an open-source Android front-end application for L
 
 ## Requirements
 
-Before using LMSA, ensure that the following requirements are met:
+Before using LMWSA, ensure that the following requirements are met:
 
-- **Android Device**: You must have a device running Android 7.0 (Nougat) or higher.  
+- **NodeJS**: You'll need to install a recent version of NodeJS on the computer you want to serve this from
 - **LM Studio**: LM Studio must be installed and running on a network-accessible computer.  
 - **Network Configuration**:  
   - CORS (Cross-Origin Resource Sharing) must be enabled in LM Studio settings to allow cross-origin requests from LMSA.
@@ -93,49 +101,10 @@ To set up the LMSA application on your development environment:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/techcow2/lmsa.git
+   git clone https://github.com/CodeF0x/lmwsa.git
    ```
+2. Install dependencies: `npm install`
 
-2. **Navigate to the project directory**:
-   ```bash
-   cd lmsa
-   ```
-
-3. **Set up the web application**:
-   - The project consists of HTML, CSS, and JavaScript files
-   - Main files include:
-     - `index.html` - The main application interface
-     - `styles.css` - Styling for the application
-     - `app.js` - Core application logic
-     - `reasoning.js` - AI interaction handling
-     - `delete-all-chats.js` - Chat management functionality
-     - `empty-message-modal.js` - UI components
-     - `help.js` - Help documentation
-     - `about.js` - About page information
-
-4. **Testing locally**:
-   - Open `index.html` in a web browser to test the application
-   - Alternatively, use a local web server:
-     ```bash
-     # Using Python's built-in HTTP server
-     python -m http.server
-     ```
-
-5. **Building for Android**:
-   - Use a WebView wrapper or framework like Cordova/PhoneGap to package the web application for Android
-   - Follow the framework's documentation for specific build instructions
-
-## Google Play Store Availability
-
-Now available on the Google Play Store for easy installation on Android devices.
-
-[<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto; display: block; margin: 0 auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app)
-
-- **Supported Devices**: Android 6.0 and higher
-- **Features**: The Google Play version includes all functionality of the web application plus additional mobile-optimized features
-- **Updates**: The app will receive regular updates through the Play Store
-
----
 
 ## Usage
 
@@ -145,12 +114,13 @@ Now available on the Google Play Store for easy installation on Android devices.
 4. **Network Configuration**:  
    - Ensure CORS and network sharing are enabled in LM Studio settings.  
 5. **Copy IP Address**: Find and copy the IP address of your computer.  
-6. **Connect LMSA to LM Studio**:  
-   - Launch the LMSA app on your Android device.  
-   - Navigate to the Settings menu in LMSA.  
+6. **Connect LMWSA to LM Studio**:  
+   - Open your phone's web browser.
+   - In the URL bar, type `http://<your computer's ip>:3000` and then submit
+   - Navigate to the Settings menu in LMWSA.  
    - Enter the copied IP address in the designated field.  
    - Tap 'Close' to save the settings.  
-7. **Interact with the Model**: Start interacting with the AI model through LMSA's clean interface.
+7. **Interact with the Model**: Start interacting with the AI model through LMWSA's clean interface.
 
 ---
 
@@ -175,7 +145,7 @@ The currently loaded model will be displayed at the top of the main interface.
 
 ## Contributing
 
-We welcome contributions to LMSA! If you'd like to contribute, please follow these steps:
+We welcome contributions to LMWSA! If you'd like to contribute, please follow these steps:
 
 1. Fork the repository.  
 2. Create a new branch for your feature or bug fix.  
@@ -187,10 +157,10 @@ We welcome contributions to LMSA! If you'd like to contribute, please follow the
 
 ## Disclaimer
 
-LMSA is a third-party application and is not affiliated with LM Studio or its developers. This app is independently developed to provide an Android front-end interface for interacting with LM Studio. Use of this app is at your own discretion, and the developers of LMSA are not responsible for any issues arising from its use.
+LMWSA is a third-party application and is not affiliated with LM Studio or its developers. This app is independently developed to provide a web front-end interface for interacting with LM Studio. Use of this app is at your own discretion, and the developers of LMSWA are not responsible for any issues arising from its use.
 
 ---
 
 ## License
 
-LMSA is released under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute the code as per the license terms
+LMWSA is released under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute the code as per the license terms
