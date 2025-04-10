@@ -88,51 +88,6 @@ document.body.addEventListener('touchmove', function (e) {
     }
 }, { passive: false });
 
-// This is a hack to stop the input field from sliding below Safari's navigation UI element.
-// Couldn't get padding-bottom: env(safe-area-inset-bottom) to work, always reports back as 0px
-document.addEventListener('DOMContentLoaded', () => {
-    function observeVisibility(el) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Element is fully visible
-                    console.log("Element is fully visible!");
-                } else {
-                    // Element is not fully visible
-                    let currentPaddingBottom = parseInt(getComputedStyle(textInput).paddingBottom || 0);
-                    textInput.style.paddingBottom = `${++currentPaddingBottom}px`;
-                    alert("Element is not fully visible!");
-                }
-            });
-        }, {
-            root: null, // viewport
-            threshold: 1.0, // 100% of the element must be visible
-        });
-
-        observer.observe(el);
-    }
-
-    function addSafeAreaBottomPadding() {
-        const textInput = document.getElementById('text-input');
-
-
-        observeVisibility(textInput);
-        // let i = 0;
-        // // if (/iPhone|iPad/.test(navigator.userAgent)) {
-        //     while (true) {
-        //         if (i === 1000000) {
-        //             break;
-        //         }
-        //         let currentPaddingBottom = parseInt(getComputedStyle(textInput).paddingBottom || 0);
-        //         textInput.style.paddingBottom = `${++currentPaddingBottom}px`;
-        //         i++;
-        //     }
-        // // }
-    }
-
-    addSafeAreaBottomPadding();
-});
-
 // Allow scrolling within the messages container
 if (messagesContainer) {
     messagesContainer.addEventListener('touchmove', function (e) {
