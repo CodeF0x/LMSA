@@ -348,7 +348,7 @@ body {
         border-left: 1px solid #2c3e50;
         border-right: 1px solid #2c3e50;
     }
-    
+
     /* Default view for tablets and desktops */
     body:not(.preview-mode) {
         max-width: none;
@@ -372,39 +372,39 @@ body {
         transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
         visibility: hidden;
     }
-    
+
     #sidebar.active {
         transform: translateX(0);
         visibility: visible;
     }
-    
+
     /* Show hamburger menu on tablets */
     #sidebar-toggle {
         display: block !important;
     }
-    
+
     /* Improve main content layout for tablets */
     #chat-container {
         padding: 1rem 1.5rem;
     }
-    
+
     /* Larger input area for tablets */
     #user-input {
         height: 48px;
         font-size: 18px;
     }
-    
+
     #chat-form button[type="submit"],
     #chat-form button#stop-button {
         padding: 0 1.5rem;
     }
-    
+
     /* Larger messages for better readability */
     #messages > div {
         max-width: 75%;
         padding: 1rem 1.25rem;
     }
-    
+
     /* Options container behavior for tablets */
     #options-container {
         max-height: 0;
@@ -424,7 +424,7 @@ body {
         transform: translateY(0);
         pointer-events: auto;
     }
-    
+
     /* Make options button visible on tablets */
     #options-btn {
         display: block !important;
@@ -889,4 +889,9 @@ h1 {
 /* Hide elements that contain think tags */
 .hide-thinking .contains-think-tag {
     display: none !important;
+}
+
+/* Make the content to 100% of the safe view height to stop the prompt input from being below browser UI elements like the iOS Safari navigation */
+#content-container {
+    height: 100svh;
 }

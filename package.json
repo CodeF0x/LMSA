@@ -1,0 +1,31 @@
+{
+  "name": "lmswa",
+  "version": "1.0.0",
+  "description": "Makes LMSA OS independently available in the (local) web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeF0x/LMSA.git"
+  },
+  "keywords": [
+    "lm studio",
+    "local llm",
+    "ai",
+    "llm",
+    "ai chat"
+  ],
+  "author": "Tobias \"CodeF0x\" Oettl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeF0x/LMSA/issues"
+  },
+  "homepage": "https://github.com/CodeF0x/LMSA#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
