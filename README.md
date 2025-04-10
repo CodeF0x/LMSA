@@ -90,20 +90,20 @@ Before using LMWSA, ensure that the following requirements are met:
 
 
 ## Usage
-
-1. **Run LM Studio**: Start LM Studio on your computer.  
-2. **Enable Server**: Run the server within LM Studio.  
-3. **Load Model**: Load the model of your choice in LM Studio.  
-4. **Network Configuration**:  
+1. **Run the webserver to serve LMWSA**: Within this repository, in a terminal, run `npm start`
+2. **Run LM Studio**: Start LM Studio on your computer.  
+3. **Enable Server**: Run the server within LM Studio.  
+4. **Load Model**: Load the model of your choice in LM Studio.  
+5. **Network Configuration**:  
    - Ensure CORS and network sharing are enabled in LM Studio settings.  
-5. **Copy IP Address**: Find and copy the IP address of your computer.  
-6. **Connect LMWSA to LM Studio**:  
+6. **Copy IP Address**: Find and copy the IP address of your computer.  
+7. **Connect LMWSA to LM Studio**:  
    - Open your phone's web browser.
    - In the URL bar, type `http://<your computer's ip>:3000` and then submit
    - Navigate to the Settings menu in LMWSA.  
    - Enter the copied IP address in the designated field.  
    - Tap 'Close' to save the settings.  
-7. **Interact with the Model**: Start interacting with the AI model through LMWSA's clean interface.
+8. **Interact with the Model**: Start interacting with the AI model through LMWSA's clean interface.
 
 ## Configuration
 
