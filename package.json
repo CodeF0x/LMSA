@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Makes LMSA OS independently available in the (local) web",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
