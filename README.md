@@ -14,13 +14,8 @@
 - [Disclaimer](#disclaimer)  
 - [License](#license)  
 
-<div style="display: flex; justify-content: space-between; gap: 10px;">  
-    <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;">  
-    <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;">  
-    <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;">  
-    <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;">  
-</div>  
-
+  <div style="display: flex; justify-content: space-between; gap: 10px;"> <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;"> </div> 
+      
 ## Overview
 
 LMSA (LM Studio Assistant) is an open-source Android front-end application for LM Studio. It provides a clean, user-friendly interface to interact with language models on your Android device. LMSA is designed with privacy in mind, offering a tracking-free and ad-free experience for users who want to leverage the power of large language models on their mobile devices.
@@ -28,9 +23,7 @@ LMSA (LM Studio Assistant) is an open-source Android front-end application for L
 ## Quick Tutorial Video
 
 For a step-by-step guide on how to set up and use LMSA with LM Studio, check out this quick tutorial on YouTube:  
-[![Watch the video](https://img.youtube.com/vi/qoXfa6In5BM/0.jpg)](https://youtu.be/qoXfa6In5BM)
-
-## Updates
+[![Watch the video](https://img.youtube.comes
 
 ### 🚀 Latest Features & Improvements
 
@@ -76,12 +69,41 @@ Before using LMSA, ensure that the following requirements are met:
 
 ## Installation
 
-1. Clone the repository:  
+To set up the LMSA application on your development environment:
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/techcow2/lmsa.git
    ```
-2. Open the project in Android Studio.  
-3. Build and run the app on your Android device or emulator.
+
+2. **Navigate to the project directory**:
+   ```bash
+   cd lmsa
+   ```
+
+3. **Set up the web application**:
+   - The project consists of HTML, CSS, and JavaScript files
+   - Main files include:
+     - `index.html` - The main application interface
+     - `styles.css` - Styling for the application
+     - `app.js` - Core application logic
+     - `reasoning.js` - AI interaction handling
+     - `delete-all-chats.js` - Chat management functionality
+     - `empty-message-modal.js` - UI components
+     - `help.js` - Help documentation
+     - `about.js` - About page information
+
+4. **Testing locally**:
+   - Open `index.html` in a web browser to test the application
+   - Alternatively, use a local web server:
+     ```bash
+     # Using Python's built-in HTTP server
+     python -m http.server
+     ```
+
+5. **Building for Android**:
+   - Use a WebView wrapper or framework like Cordova/PhoneGap to package the web application for Android
+   - Follow the framework's documentation for specific build instructions
 
 ## Usage
 
@@ -131,4 +153,4 @@ LMSA is a third-party application and is not affiliated with LM Studio or its de
 
 ## License
 
-LMSA is released under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute the code as per the license terms.
+LMSA is released under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute the code as per the license terms
