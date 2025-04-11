@@ -83,8 +83,6 @@ Before using LMSA, ensure that the following requirements are met:
 2. Open the project in Android Studio.  
 3. Build and run the app on your Android device or emulator.
 
-Alternatively, download the latest APK from the [Releases](https://github.com/techcow2/lmsa/releases) page.
-
 ## Usage
 
 1. **Run LM Studio**: Start LM Studio on your computer.  
