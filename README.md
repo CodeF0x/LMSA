@@ -14,7 +14,24 @@
 - [Disclaimer](#disclaimer)
 - [License](#license)
 
-  <div style="display: flex; justify-content: space-between; gap: 10px;"> <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;"> </div> 
+<div style="display: flex; justify-content: space-between; gap: 10px;"> <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;"> </div>         
+
+## Coming Soon to Google Play Store!
+
+| | |
+|:---:|:---|
+| <img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;"> | We're excited to announce that LMSA will soon be available for download on the Google Play Store with exciting new features |
+
+
+- **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models
+- **Refreshed User Interface**: Completely revamped UI for better usability
+- **Instructional Video Guide**: New helpful video tutorial for getting started
+- **Model Information Toggle**: Added ability to show/hide loaded model information
+- **App Refresh Capability**: Easily refresh the entire app to load a different model after changes on the computer
+- **Enhanced Sidebar**: Upgraded side bar UI for improved navigation
+- **Tablet Support**: Optimized interface for tablet devices
+
+Stay tuned for the official release!
       
 ## Overview
 
@@ -22,10 +39,7 @@ LMSA (LM Studio Assistant) is an open-source Android front-end application for L
 
 ## Quick Tutorial Video
 
-[![Watch the video](https://img.youtube.com/vi/qoXfa6In5BM/0.jpg)](https://www.youtube.com/watch?v=qoXfa6In5BM)
-
-
-### 🚀 Latest Features & Improvements
+[![Watch the video](https://atest Features & Improvements
 
 - **Enhanced Server Settings Input**: IP and port fields are now separated for easier configuration.  
 - **Help Menu Added**: Quickly access guidance and support directly within the app.  
