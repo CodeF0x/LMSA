@@ -79,7 +79,9 @@ LMSA (LM Studio Assistant) is an open-source Android front-end application for L
 ### 🛠 Technical Highlights
 
 - **Open Source**: Transparent codebase, open for community contributions and audits.  
-- **LM Studio Integration**: Seamless connection with LM Studio's powerful language model capabilities.  
+- **LM Studio Integration**: Seamless connection with LM Studio's powerful language model capabilities.
+
+---
 
 ## Requirements
 
@@ -89,6 +91,8 @@ Before using LMSA, ensure that the following requirements are met:
 - **LM Studio**: LM Studio must be installed and running on a network-accessible computer.  
 - **Network Configuration**:  
   - CORS (Cross-Origin Resource Sharing) must be enabled in LM Studio settings to allow cross-origin requests from LMSA.
+
+---
 
 ## Installation
 
@@ -128,6 +132,20 @@ To set up the LMSA application on your development environment:
    - Use a WebView wrapper or framework like Cordova/PhoneGap to package the web application for Android
    - Follow the framework's documentation for specific build instructions
 
+## Google Play Store Availability
+
+**Coming Soon!** 🚀
+
+We're excited to announce that LMSA will soon be available on the Google Play Store for easy installation on Android devices. 
+
+- **Supported Devices**: Android 8.0 (Oreo) and higher
+- **Features**: The Google Play version will include all functionality of the web application plus additional mobile-optimized features
+- **Updates**: Once released, the app will receive regular updates through the Play Store
+
+Stay tuned for the official release announcement. In the meantime, you can use the manual installation method described above to test and use the application.
+
+---
+
 ## Usage
 
 1. **Run LM Studio**: Start LM Studio on your computer.  
@@ -142,6 +160,8 @@ To set up the LMSA application on your development environment:
    - Enter the copied IP address in the designated field.  
    - Tap 'Close' to save the settings.  
 7. **Interact with the Model**: Start interacting with the AI model through LMSA's clean interface.
+
+---
 
 ## Configuration
 
@@ -160,6 +180,8 @@ To set up the LMSA application on your development environment:
 
 The currently loaded model will be displayed at the top of the main interface.
 
+---
+
 ## Contributing
 
 We welcome contributions to LMSA! If you'd like to contribute, please follow these steps:
@@ -170,9 +192,13 @@ We welcome contributions to LMSA! If you'd like to contribute, please follow the
 4. Push your changes to your fork.  
 5. Submit a pull request to the main repository.
 
+---
+
 ## Disclaimer
 
 LMSA is a third-party application and is not affiliated with LM Studio or its developers. This app is independently developed to provide an Android front-end interface for interacting with LM Studio. Use of this app is at your own discretion, and the developers of LMSA are not responsible for any issues arising from its use.
+
+---
 
 ## License
 
