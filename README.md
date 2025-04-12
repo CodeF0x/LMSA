@@ -30,7 +30,8 @@
 
 ## Latest Improvements
 
-- **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models  
+- **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models
+- **File Upload Support**: Chat with your documents right from your Android device!  
 - **Refreshed User Interface**: Completely revamped UI for better usability  
 - **Instructional Video Guide**: New helpful video tutorial for getting started  
 - **Model Information Toggle**: Added ability to show/hide loaded model information  
