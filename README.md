@@ -39,7 +39,7 @@ LMSA (LM Studio Assistant) is an open-source Android front-end application for L
 
 ## Quick Tutorial Video
 
-[![Watch the video](https://atest Features & Improvements
+[![Watch the video](https://img.youtube.com/vi/qoXfa6In5BM/0.jpg)](https://www.youtube.com/watch?v=qoXfa6In5BM)
 
 - **Enhanced Server Settings Input**: IP and port fields are now separated for easier configuration.  
 - **Help Menu Added**: Quickly access guidance and support directly within the app.  
