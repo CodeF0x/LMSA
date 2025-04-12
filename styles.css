@@ -26,6 +26,8 @@ body {
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+    min-height: 0; /* Ensure proper flexbox behavior */
 }
 
 #messages {
@@ -36,6 +38,11 @@ body {
     padding-bottom: 1rem;
     overscroll-behavior: contain; /* Prevent body scroll when reaching top/bottom */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 #messages > div {
@@ -121,6 +128,21 @@ body {
     color: #bdc3c7;
     font-size: 1.1rem;
     padding: 2rem;
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 5;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #loaded-model {
@@ -136,8 +158,11 @@ body {
 }
 
 #loaded-model.hidden {
-    opacity: 0;
+    display: none !important;
+    height: 0;
     padding: 0;
+    margin: 0;
+    overflow: hidden;
     border-bottom: none;
 }
 
@@ -165,10 +190,20 @@ body {
     100% { opacity: 0; }
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 0.8s linear infinite;
+}
+
 #chat-history {
     max-height: calc(100vh - 240px);
     overflow-y: auto;
     padding-right: 0.5rem;
+    padding-bottom: 2rem;
 }
 
 #chat-history button {
@@ -188,6 +223,26 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Add styles for the chat title and trash icon */
+#chat-history button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 30px); /* Reserve space for trash icon */
+}
+
+.trash-icon {
+    min-width: 18px;
+    margin-left: 8px;
+    color: #e74c3c;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.trash-icon:hover {
+    opacity: 1;
 }
 
 #chat-history button:hover {
@@ -223,6 +278,159 @@ body {
     height: 100%;
 }
 
+#options-container {
+    transition: all 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+#options-container.animate-fade-in {
+    animation: none;
+    max-height: 200px; /* Enough height to contain all buttons */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure proper display on mobile */
+@media (max-width: 768px) {
+    #options-container {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #options-container.hidden {
+        display: none;
+    }
+
+    #options-container.animate-fade-in {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    /* Fix welcome message positioning on mobile */
+    #welcome-message {
+        padding-top: 0;
+        margin-top: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .welcome-content {
+        margin-top: 0;
+        transform: translateY(0);
+    }
+}
+
+/* Updated responsive design with tablet support */
+@media (min-width: 769px) {
+    /* Smartphone simulator/preview mode */
+    body.preview-mode {
+        max-width: 480px;
+        margin: 0 auto;
+        border-left: 1px solid #2c3e50;
+        border-right: 1px solid #2c3e50;
+    }
+    
+    /* Default view for tablets and desktops */
+    body:not(.preview-mode) {
+        max-width: none;
+        margin: 0;
+        border: none;
+    }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 769px) and (max-width: 1023px) {
+    /* Apply mobile-like hamburger menu behavior for tablets */
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+        max-width: 350px; /* Slightly wider for tablets */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        visibility: hidden;
+    }
+    
+    #sidebar.active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    
+    /* Show hamburger menu on tablets */
+    #sidebar-toggle {
+        display: block !important;
+    }
+    
+    /* Improve main content layout for tablets */
+    #chat-container {
+        padding: 1rem 1.5rem;
+    }
+    
+    /* Larger input area for tablets */
+    #user-input {
+        height: 48px;
+        font-size: 18px;
+    }
+    
+    #chat-form button[type="submit"],
+    #chat-form button#stop-button {
+        padding: 0 1.5rem;
+    }
+    
+    /* Larger messages for better readability */
+    #messages > div {
+        max-width: 75%;
+        padding: 1rem 1.25rem;
+    }
+    
+    /* Options container behavior for tablets */
+    #options-container {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #options-container.hidden {
+        display: none;
+    }
+
+    #options-container.animate-fade-in {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    
+    /* Make options button visible on tablets */
+    #options-btn {
+        display: block !important;
+    }
+}
+
 #sidebar-toggle {
     display: block;
 }
@@ -246,6 +454,12 @@ body {
 /* Updated styles for the submit button */
 #chat-form button[type="submit"] {
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    overflow: hidden;
+    line-height: 1;
 }
 
 #chat-form button[type="submit"].bg-blue-600 {
@@ -434,6 +648,49 @@ h1 {
     margin-top: auto;
 }
 
+/* Styles for the settings modal */
+#settings-modal {
+    z-index: 1000; /* High z-index to ensure it's above other content */
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto; /* Ensure clicks are registered */
+}
+
+/* Ensure all form elements in the settings modal are interactive */
+#settings-modal input,
+#settings-modal textarea,
+#settings-modal button,
+#settings-modal label {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 1003;
+}
+
+/* Fix toggle switch positioning */
+#settings-modal .relative,
+#settings-modal .toggle-switch-container {
+    position: relative;
+}
+
+#settings-modal .block,
+#settings-modal .toggle-background {
+    position: relative;
+    z-index: 1;
+}
+
+#settings-modal .dot,
+#settings-modal .toggle-circle {
+    pointer-events: none !important;
+    z-index: 1003;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s ease, background-color 0.3s ease !important;
+}
+
 /* Styles for the confirmation modal */
 #confirmation-modal {
     z-index: 1001; /* Ensure it's above the settings modal */
@@ -449,4 +706,187 @@ h1 {
 
 #confirmation-modal button:hover {
     transform: translateY(-2px);
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.modal-container {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000; /* Ensure modals appear above other content */
+}
+
+.modal-content {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: relative;
+    z-index: 1002; /* Higher than the modal container */
+    pointer-events: auto; /* Ensure clicks are registered */
+}
+
+.animate-modal-in {
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+.animate-modal-out {
+    animation: modalFadeOut 0.3s ease forwards;
+}
+
+/* File upload styling */
+#file-upload-button {
+    border-left: 1px solid #444;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+}
+
+#file-upload-button:hover {
+    background-color: #555;
+}
+
+.file-previews {
+    padding: 8px 12px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #2c3e50;
+}
+
+.file-preview {
+    background-color: #2c2c2c;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 4px 2px;
+    display: inline-block;
+    font-size: 0.9em;
+    border: 1px solid #444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.file-preview i {
+    margin-right: 6px;
+    color: #3498db;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Toggle Switch Styles */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 32px;
+    margin-left: 10px;
+}
+
+.toggle-checkbox {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    position: absolute;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2c2c2c;
+    border-radius: 34px;
+    transition: all 0.4s ease;
+    border: 1px solid #444;
+}
+
+.toggle-switch-circle {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    z-index: 1;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-switch-circle {
+    transform: translateX(24px);
+    background-color: #3B82F6;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.8);
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #1E40AF;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    border-color: #3B82F6;
+}
+
+/* Add a blue glow to indicate active state */
+.toggle-checkbox:checked + .toggle-label:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 34px;
+    background: rgba(59, 130, 246, 0.2);
+    z-index: 0;
+}
+
+/* Hide thinking text when option is enabled */
+.hide-thinking .think {
+    display: none !important;
+}
+
+/* Additional selectors to hide <think> tags in any format */
+.hide-thinking p,
+.hide-thinking pre,
+.hide-thinking code {
+    position: relative;
+}
+
+/* Directly target any thinking text elements that get through */
+.hide-thinking .reasoning-intro,
+.hide-thinking .reasoning-content,
+.hide-thinking .reasoning-step {
+    display: none !important;
+}
+
+/* Hide elements that contain think tags */
+.hide-thinking .contains-think-tag {
+    display: none !important;
 }
