@@ -1,7 +1,5 @@
 # LMSA - LM Studio Android Front-End
 
-<img src="https://i.ibb.co/0Rn7DSMD/Adobe-Express-file-1.png" alt="LMSA Feature Graphic" width="650" style="max-width: 85%; height: auto; pointer-events: none;">
-
 # Table of Contents
 
 - [Overview](#overview)
