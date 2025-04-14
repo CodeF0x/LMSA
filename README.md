@@ -4,10 +4,8 @@
 
 # Table of Contents
 
-
 - [Overview](#overview)
 - [Quick Tutorial Video](#quick-tutorial-video)
-- [Coming Soon to Google Play Store](#coming-soon-to-google-play-store)
 - [Latest Improvements](#latest-improvements)
 - [Features](#features)
 - [Requirements](#requirements)
@@ -20,13 +18,11 @@
 
 <div style="display: flex; justify-content: space-between; gap: 10px;"> <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;"> </div>
 
-
-
-## Coming Soon to Google Play Store!
+## Now Available in the Google Play Store!
 
 | | |
 |:---:|:---|
-| <img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;"> | We're excited to announce that LMSA will soon be available for download on the Google Play Store with exciting new features |
+| [<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | We're excited to announce that LMSA will soon be available for download on the Google Play Store with exciting new features |
 
 ## Latest Improvements
 
@@ -49,7 +45,7 @@
 Stay tuned for the official release!
 
 ---
-      
+
 ## Overview
 
 LMSA (LM Studio Assistant) is an open-source Android front-end application for LM Studio. It provides a clean, user-friendly interface to interact with language models on your Android device. LMSA is designed with privacy in mind, offering a tracking-free and ad-free experience for users who want to leverage the power of large language models on their mobile devices.
@@ -135,15 +131,13 @@ To set up the LMSA application on your development environment:
 
 ## Google Play Store Availability
 
-**Coming Soon!** 🚀
+Now available on the Google Play Store for easy installation on Android devices. 
 
-We're excited to announce that LMSA will soon be available on the Google Play Store for easy installation on Android devices. 
+[<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app)
 
-- **Supported Devices**: Android 8.0 (Oreo) and higher
-- **Features**: The Google Play version will include all functionality of the web application plus additional mobile-optimized features
-- **Updates**: Once released, the app will receive regular updates through the Play Store
-
-Stay tuned for the official release announcement. In the meantime, you can use the manual installation method described above to test and use the application.
+- **Supported Devices**: Android 6.0 and higher
+- **Features**: The Google Play version includes all functionality of the web application plus additional mobile-optimized features
+- **Updates**: The app will receive regular updates through the Play Store
 
 ---
 
