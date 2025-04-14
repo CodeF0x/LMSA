@@ -22,7 +22,7 @@
 
 | | |
 |:---:|:---|
-| [<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | We're excited to announce that LMSA will soon be available for download on the Google Play Store with exciting new features |
+| [<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | LMSA is now available for download on the Google Play Store with exciting new features |
 
 ## Latest Improvements
 
@@ -131,9 +131,9 @@ To set up the LMSA application on your development environment:
 
 ## Google Play Store Availability
 
-Now available on the Google Play Store for easy installation on Android devices. 
+Now available on the Google Play Store for easy installation on Android devices.
 
-[<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app)
+[<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto; display: block; margin: 0 auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app)
 
 - **Supported Devices**: Android 6.0 and higher
 - **Features**: The Google Play version includes all functionality of the web application plus additional mobile-optimized features
