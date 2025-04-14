@@ -42,8 +42,6 @@
 - **Enhanced Sidebar**: Upgraded side bar UI for improved navigation  
 - **Tablet Support**: Optimized interface for tablet devices
 
-Stay tuned for the official release!
-
 ---
 
 ## Overview
