@@ -20,28 +20,15 @@ This is a fork and 99.9% of all work was done by [techcow2](https://github.com/t
 
 <div style="display: flex; justify-content: space-between; gap: 10px;"> <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;"> </div>
 
-## Now Available in the Google Play Store!
-
-| | |
-|:---:|:---|
-| [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | LMSA is now available for download on the Google Play Store with exciting new features |
-
 ## Latest Improvements
 
 - **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models
-- **File Upload Support**: Chat with your documents right from your Android device!  
-- **Refreshed User Interface**: Completely revamped UI for better usability  
-- **Instructional Video Guide**: New helpful video tutorial for getting started  
-- **Model Information Toggle**: Added ability to show/hide loaded model information  
-- **App Refresh Capability**: Easily refresh the entire app to load a different model after changes on the computer  
-- **Enhanced Sidebar**: Upgraded side bar UI for improved navigation  
-- **Tablet Support**: Optimized interface for tablet devices  
-- **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models  
-- **Refreshed User Interface**: Completely revamped UI for better usability  
-- **Instructional Video Guide**: New helpful video tutorial for getting started  
-- **Model Information Toggle**: Added ability to show/hide loaded model information  
-- **App Refresh Capability**: Easily refresh the entire app to load a different model after changes on the computer  
-- **Enhanced Sidebar**: Upgraded side bar UI for improved navigation  
+- **File Upload Support**: Chat with your documents right from your Android device!
+- **Refreshed User Interface**: Completely revamped UI for better usability
+- **Instructional Video Guide**: New helpful video tutorial for getting started
+- **Model Information Toggle**: Added ability to show/hide loaded model information
+- **App Refresh Capability**: Easily refresh the entire app to load a different model after changes on the computer
+- **Enhanced Sidebar**: Upgraded side bar UI for improved navigation
 - **Tablet Support**: Optimized interface for tablet devices
 
 ---
@@ -88,7 +75,7 @@ LMSWA (LM Studio Web Assistant) is an open-source web front-end application for 
 
 Before using LMWSA, ensure that the following requirements are met:
 
-- **NodeJS**: You'll need to install a recent version of NodeJS on the computer you want to serve this from
+- **Node.js**: You'll need to install a recent version of Node.js on the computer you want to serve this from
 - **LM Studio**: LM Studio must be installed and running on a network-accessible computer.  
 - **Network Configuration**:  
   - CORS (Cross-Origin Resource Sharing) must be enabled in LM Studio settings to allow cross-origin requests from LMSA.
