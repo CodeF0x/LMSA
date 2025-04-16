@@ -1,6 +1,6 @@
 {
   "name": "lmswa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Makes LMSA OS independently available in the (local) web",
   "main": "index.js",
   "type": "module",
