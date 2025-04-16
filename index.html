@@ -36,11 +36,31 @@
                 <img src="icon22.png" alt="LMSA Icon" class="w-8 h-8 mr-2">
                 <h1 class="text-2xl font-bold">LMSWA</h1>
             </div>
-            <button id="sidebar-toggle" class="md:hidden text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none" aria-label="Toggle Sidebar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <div class="flex items-center">
+                <button id="model-toggle-button" class="text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none mr-2 transition-all duration-300" aria-label="Toggle Model Info" title="Toggle model info display">
+                    <i class="fas fa-robot text-xl hover:text-blue-400"></i>
+                </button>
+                <button id="help-icon-button" class="text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none mr-2" aria-label="Help" title="Open help">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"></path>
+                    </svg>
+                </button>
+                <button id="refresh-button" class="text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none mr-2" aria-label="Refresh Model" title="Refresh model from LM Studio">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                </button>
+                <button id="sidebar-toggle" class="text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none" aria-label="Toggle Sidebar">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <button id="preview-toggle" class="hidden md:block text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none ml-2" aria-label="Toggle Mobile Preview" title="Toggle mobile preview mode">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                </button>
+            </div>
         </header>
 
         <!-- Model display bar -->
@@ -48,8 +68,8 @@
 
         <div class="flex flex-1 overflow-hidden">
             <!-- Sidebar -->
-            <div id="sidebar" class="w-full md:w-64 bg-darkSecondary p-4 hidden md:flex md:flex-col animate-slide-in">
-                <div class="flex justify-between items-center mb-4 md:hidden">
+            <div id="sidebar" class="w-full bg-darkSecondary p-4 animate-slide-in">
+                <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold">Menu</h2>
                     <button id="close-sidebar" class="text-gray-100 p-2 rounded-md hover:bg-darkTertiary focus:outline-none" aria-label="Close Sidebar">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -62,26 +82,31 @@
                         <button id="new-chat" class="w-full bg-blue-600 text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-blue-700 focus:outline-none transition-all duration-300 ease-in-out">
                             <i class="fas fa-plus-circle mr-2"></i>New Chat
                         </button>
-                        <button id="settings-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
-                            <i class="fas fa-cog mr-2"></i>Settings
+                        <button id="options-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
+                            <i class="fas fa-ellipsis-h mr-2"></i>Options
                         </button>
-                        <button id="help-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
-                            <i class="fas fa-question-circle mr-2"></i>Help
-                        </button>
-                        <button id="about-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
-                            <i class="fas fa-info-circle mr-2"></i>About
-                        </button>
+                        <div id="options-container" class="hidden lg:block lg:max-height-none lg:opacity-100 lg:transform-none">
+                            <button id="settings-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </button>
+                            <button id="help-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
+                                <i class="fas fa-question-circle mr-2"></i>Help
+                            </button>
+                            <button id="about-btn" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 mb-4 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out">
+                                <i class="fas fa-info-circle mr-2"></i>About
+                            </button>
+                        </div>
                     </div>
                     <div id="chat-history" class="flex-grow overflow-y-auto"></div>
-                    </div>
+                </div>
             </div>
 
             <!-- Main content -->
             <div class="flex-1 flex flex-col overflow-hidden bg-darkBg">
                 <!-- Chat container -->
-                <div id="chat-container" class="flex-1 overflow-y-auto p-4 flex flex-col">
-                    <div id="welcome-message" class="flex-1 flex items-center justify-center text-center text-gray-400 animate-fade-in">
-                        <div>
+                <div id="chat-container" class="flex-1 overflow-y-auto p-4 flex flex-col relative">
+                    <div id="welcome-message" class="absolute inset-0 flex items-center justify-center text-center text-gray-400 animate-fade-in">
+                        <div class="welcome-content">
                             <i class="fas fa-comment-dots text-5xl mb-4"></i>
                             <p>
                                 <strong>Welcome to LM Studio Web Assistant!</strong><br><br>
@@ -89,7 +114,7 @@
                             </p>
                         </div>
                     </div>
-                    <div id="messages"></div>
+                    <div id="messages" class="flex-1"></div>
                     <div id="loading-indicator" class="hidden">
                         <span class="loading-ellipsis">...</span>
                     </div>
@@ -101,6 +126,10 @@
                         <div class="flex-grow relative">
                             <input type="text" id="user-input" class="w-full bg-darkTertiary text-gray-100 border border-gray-600 rounded-l-lg px-4 py-2 focus:outline-none" placeholder="Type your message..." aria-label="Type your message" autocomplete="off">
                         </div>
+                        <button type="button" id="file-upload-button" class="bg-darkTertiary text-white px-3 py-2 hover:bg-gray-600 focus:outline-none transition-all duration-300 ease-in-out" title="Upload file">
+                            <i class="fas fa-paperclip"></i>
+                            <input type="file" id="file-upload-input" class="hidden" multiple accept=".txt,.pdf,.json,.csv,.tsv,.xml,.html,.log,.md,.yaml,.yml,.jsonl,.jsonlines,.c,.cpp,.h,.hpp,.py,.js,.ts,.jsx,.tsx,.sh,.ps1,.docx">
+                        </button>
                         <button type="submit" id="send-button" class="bg-blue-600 text-white rounded-r-lg px-6 py-2 hover:bg-blue-700 focus:outline-none transition-all duration-300 ease-in-out">
                             <i class="fas fa-paper-plane mr-2"></i>Send
                         </button>
@@ -132,8 +161,8 @@
     </div>
 
     <!-- Settings modal -->
-    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden animate-fade-in" aria-labelledby="settings-title" role="dialog" aria-modal="true">
-        <div class="bg-darkSecondary p-6 rounded-lg w-96 max-w-[90%] shadow-lg">
+    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center hidden modal-container" aria-labelledby="settings-title" role="dialog" aria-modal="true" style="z-index: 1000; display: none;">
+        <div class="bg-darkSecondary p-6 rounded-lg w-96 max-w-[90%] shadow-lg modal-content" style="z-index: 1002; position: relative;">
             <h2 id="settings-title" class="text-xl font-bold mb-4 flex items-center">
                 <i class="fas fa-cog mr-2 text-blue-500"></i>Settings
             </h2>
@@ -166,11 +195,24 @@
                     </button>
                 </div>
             </div>
-            <button id="clear-chat" class="w-full bg-darkTertiary text-gray-100 rounded-lg px-4 py-2 hover:bg-gray-600 focus:outline-none mb-2 transition-all duration-300 ease-in-out">
-                <i class="fas fa-trash-alt mr-2"></i>Clear Chat
+            <div class="mb-4">
+                <label class="flex items-center justify-between cursor-pointer">
+                    <span class="text-sm font-medium">Hide Thinking Text</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="hide-thinking" class="toggle-checkbox">
+                        <label for="hide-thinking" class="toggle-label">
+                            <span class="toggle-inner"></span>
+                            <span class="toggle-switch-circle"></span>
+                        </label>
+                    </div>
+                </label>
+                <p class="text-xs text-gray-400 mt-1">When enabled, hides text between &lt;think&gt; tags in model responses</p>
+            </div>
+            <button id="clear-chat" class="w-full bg-red-600 text-white rounded-lg px-4 py-2 hover:bg-red-700 focus:outline-none mb-2 transition-all duration-300 ease-in-out">
+                <i class="fas fa-trash-alt mr-2"></i>Clear All Chats
             </button>
             <button id="close-settings" class="w-full bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 focus:outline-none transition-all duration-300 ease-in-out">
-                <i class="fas fa-check mr-2"></i>Close
+                <i class="fas fa-save mr-2"></i>Save
             </button>
         </div>
     </div>
@@ -208,14 +250,13 @@
     </div>
 
     <!-- Help modal -->
-    <div id="help-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden animate-fade-in" aria-labelledby="help-title" role="dialog" aria-modal="true">
-        <div class="bg-darkSecondary p-6 rounded-lg w-[800px] max-w-[95%] max-h-[90vh] shadow-lg overflow-hidden flex flex-col">
+    <div id="help-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden modal-container" aria-labelledby="help-title" role="dialog" aria-modal="true">
+        <div class="bg-darkSecondary p-6 rounded-lg w-[800px] max-w-[95%] max-h-[90vh] shadow-lg overflow-hidden flex flex-col modal-content">
             <h2 id="help-title" class="text-2xl font-bold mb-4 flex items-center sticky top-0 bg-darkSecondary z-10">
-                <i class="fas fa-question-circle mr-2 text-blue-500"></i>Welcome to LMSWA!
+                <i class="fas fa-question-circle mr-2 text-blue-500"></i>LMSWA Help
             </h2>
             <div class="space-y-6 overflow-y-auto pr-4 flex-grow">
                 <p class="text-gray-300">Quick guide to using LMSWA:</p>
-                
                 <div class="space-y-4">
                     <section>
                         <h3 class="text-lg font-semibold mb-2 text-blue-400">Quick Start</h3>
@@ -236,9 +277,14 @@
                     </section>
                 </div>
             </div>
-            <button id="close-help" class="w-full bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 focus:outline-none mt-4 transition-all duration-300 ease-in-out sticky bottom-0">
-                <i class="fas fa-times mr-2"></i>Close
-            </button>
+            <div class="pt-6 pb-4 space-y-4">
+                <button id="tutorial-video-btn" class="flex items-center justify-center w-full bg-red-600 text-white rounded-lg px-4 py-3 hover:bg-red-700 focus:outline-none transition-all duration-300 ease-in-out shadow-md hover:shadow-lg active:scale-98 text-lg">
+                    <i class="fab fa-youtube mr-3 text-xl"></i>Watch Tutorial Video
+                </button>
+                <button id="close-help" class="flex items-center justify-center w-full bg-blue-600 text-white rounded-lg px-4 py-3 hover:bg-blue-700 focus:outline-none transition-all duration-300 ease-in-out shadow-md hover:shadow-lg active:scale-98 text-lg">
+                    <i class="fas fa-times mr-3 text-xl"></i>Close
+                </button>
+            </div>
         </div>
     </div>
 
@@ -253,15 +299,15 @@
     </div>
 
     <!-- About modal -->
-    <div id="about-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden animate-fade-in" aria-labelledby="about-title" role="dialog" aria-modal="true">
-        <div class="bg-darkSecondary p-6 rounded-lg w-96 max-w-[90%] shadow-lg">
+    <div id="about-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden modal-container" aria-labelledby="about-title" role="dialog" aria-modal="true">
+        <div class="bg-darkSecondary p-6 rounded-lg w-96 max-w-[90%] shadow-lg modal-content">
             <h2 id="about-title" class="text-xl font-bold mb-4 flex items-center">
                 <i class="fas fa-info-circle mr-2 text-blue-500"></i>About LMSWA
             </h2>
             <div class="space-y-4 text-gray-300">
                 <p class="text-center">© 2025 Tobias "CodeF0x" Oettl</p>
-                <p class="text-center">Need help? <a href="https://github.com/CodeF0x/lmsa/issues" target="_blank" class="text-blue-400 hover:text-blue-300">Open an issue on GitHub</a></p>
-                <p class="text-center"><a href="https://github.com/techcow2/CodeF0x/blob/main/LICENSE" target="_blank" class="text-blue-400 hover:text-blue-300">MIT License</a></p>
+                <p class="text-center">Need help? <a href="#" id="open-help-link" class="text-blue-400 hover:text-blue-300">Open Help Menu</a></p>
+                <p class="text-center"><a href="https://github.com/CodeF0x/lmswa/blob/main/LICENSE" target="_blank" class="text-blue-400 hover:text-blue-300">MIT License</a></p>
             </div>
             <div class="mt-6">
                 <button id="close-about" class="w-full bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 focus:outline-none transition-all duration-300 ease-in-out">
@@ -271,10 +317,34 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Main application script with module imports -->
+    <script type="module" src="app.js"></script>
     <script src="about.js"></script>
     <script src="help.js"></script>
     <script src="empty-message-modal.js"></script>
     <script src="delete-all-chats.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script>
+        // Add preview mode toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const previewToggle = document.getElementById('preview-toggle');
+            if (previewToggle) {
+                previewToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('preview-mode');
+                    // Store preference in localStorage
+                    if (document.body.classList.contains('preview-mode')) {
+                        localStorage.setItem('previewMode', 'true');
+                    } else {
+                        localStorage.setItem('previewMode', 'false');
+                    }
+                });
+
+                // Check localStorage for saved preference
+                if (localStorage.getItem('previewMode') === 'true') {
+                    document.body.classList.add('preview-mode');
+                }
+            }
+        });
+    </script>
 </body>
 </html>

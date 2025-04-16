@@ -12,12 +12,15 @@ function formatReasoning(content) {
             <div class="reasoning-intro">
                 <i class="fas fa-brain"></i>
                 Reasoning Process
+                <span class="reasoning-toggle" title="Toggle visibility">[<span class="toggle-text">Hide</span>]</span>
             </div>
-            ${thinkContent.split('\n\n').map(paragraph => {
-                // Skip empty paragraphs
-                if (!paragraph.trim()) return '';
-                return `<div class="reasoning-step">${paragraph.trim()}</div>`;
-            }).join('')}
+            <div class="reasoning-content">
+                ${thinkContent.split('\n\n').map(paragraph => {
+                    // Skip empty paragraphs
+                    if (!paragraph.trim()) return '';
+                    return `<div class="reasoning-step">${paragraph.trim()}</div>`;
+                }).join('')}
+            </div>
         </div>
     `;
 
@@ -59,8 +62,42 @@ style.textContent = `
         color: #7cb7ff;
         font-weight: bold;
     }
+    
+    .reasoning-toggle {
+        font-size: 0.8em;
+        margin-left: 10px;
+        cursor: pointer;
+        color: #7cb7ff;
+    }
+    
+    .reasoning-toggle:hover {
+        text-decoration: underline;
+    }
 `;
 document.head.appendChild(style);
+
+// Function to handle toggling visibility of individual thinking sections
+function setupReasoningToggles() {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('reasoning-toggle') || e.target.classList.contains('toggle-text')) {
+            const toggle = e.target.classList.contains('toggle-text') ? e.target.parentElement : e.target;
+            const toggleText = toggle.querySelector('.toggle-text');
+            const thinkContainer = toggle.closest('.think');
+            const reasoningContent = thinkContainer.querySelector('.reasoning-content');
+            
+            if (reasoningContent.style.display === 'none') {
+                reasoningContent.style.display = 'block';
+                toggleText.textContent = 'Hide';
+            } else {
+                reasoningContent.style.display = 'none';
+                toggleText.textContent = 'Show';
+            }
+        }
+    });
+}
+
+// Set up event listeners when the DOM is loaded
+document.addEventListener('DOMContentLoaded', setupReasoningToggles);
 
 // Export the formatting functions
 window.formatReasoning = formatReasoning;

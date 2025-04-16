@@ -4,26 +4,47 @@
 
 This is a fork and 99.9% of all work was done by [techcow2](https://github.com/techcow2). I was in need of talking to my local LM Studio via my phone and found [the original repository](https://github.com/techcow2/lmsa) which I've expanded by essentially wrapping a webserver around the source code to serve it via HTTP to make it available in my iPhone's web browser.
 
-## Table of Contents
+# Table of Contents
 
-- [Overview](#overview)  
-- [Quick Tutorial Video](#quick-tutorial-video)  
-- [Updates](#updates)  
-- [Features](#features)  
-- [Requirements](#requirements)  
-- [Installation](#installation)  
-- [Usage](#usage)  
-- [Configuration](#configuration)  
-- [Contributing](#contributing)  
-- [Disclaimer](#disclaimer)  
-- [License](#license)  
+- [Overview](#overview)
+- [Quick Tutorial Video](#quick-tutorial-video)
+- [Latest Improvements](#latest-improvements)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [Disclaimer](#disclaimer)
+- [License](#license)
 
-<div style="display: flex; justify-content: space-between; gap: 10px;">  
-    <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;">  
-    <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;">  
-    <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;">  
-    <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;">  
-</div>  
+<div style="display: flex; justify-content: space-between; gap: 10px;"> <img src="https://github.com/user-attachments/assets/b3640a20-a180-4a37-94ae-53c6020ca03b" alt="Google Pixel 4 XL Screenshot 0" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/dd665c56-4639-440d-8826-eb0813117304" alt="Google Pixel 4 XL Screenshot 2" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/23b6236b-980e-443c-afc9-b974029bcc8a" alt="Google Pixel 4 XL Screenshot 3" style="width: 22%; height: auto;"> <img src="https://github.com/user-attachments/assets/85e275f3-62fa-4143-9fa2-1cade83031c5" alt="Google Pixel 4 XL Screenshot 1" style="width: 22%; height: auto;"> </div>
+
+## Now Available in the Google Play Store!
+
+| | |
+|:---:|:---|
+| [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | LMSA is now available for download on the Google Play Store with exciting new features |
+
+## Latest Improvements
+
+- **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models
+- **File Upload Support**: Chat with your documents right from your Android device!  
+- **Refreshed User Interface**: Completely revamped UI for better usability  
+- **Instructional Video Guide**: New helpful video tutorial for getting started  
+- **Model Information Toggle**: Added ability to show/hide loaded model information  
+- **App Refresh Capability**: Easily refresh the entire app to load a different model after changes on the computer  
+- **Enhanced Sidebar**: Upgraded side bar UI for improved navigation  
+- **Tablet Support**: Optimized interface for tablet devices  
+- **Improved Reasoning Model Integration**: Enhanced interaction with various reasoning models  
+- **Refreshed User Interface**: Completely revamped UI for better usability  
+- **Instructional Video Guide**: New helpful video tutorial for getting started  
+- **Model Information Toggle**: Added ability to show/hide loaded model information  
+- **App Refresh Capability**: Easily refresh the entire app to load a different model after changes on the computer  
+- **Enhanced Sidebar**: Upgraded side bar UI for improved navigation  
+- **Tablet Support**: Optimized interface for tablet devices
+
+---
 
 ## Overview
 
@@ -31,23 +52,13 @@ LMSWA (LM Studio Web Assistant) is an open-source web front-end application for 
 
 ## Quick Tutorial Video
 
-For a step-by-step guide on how to set up and use LMWSA with LM Studio, check out this quick tutorial on YouTube: 
-[![Watch the video](https://img.youtube.com/vi/qoXfa6In5BM/0.jpg)](https://youtu.be/qoXfa6In5BM)
+[![Watch the video](https://img.youtube.com/vi/qoXfa6In5BM/0.jpg)](https://www.youtube.com/watch?v=qoXfa6In5BM)
 
-(It shows the usage of the original Android app, however apart from the initial setup, the usage is identical to the web app)
+(It shows the usage of the original Android app, however, apart from the initial setup, the usage is identical to the web app)
 
 ## Updates
 
-### 🚀 Latest Features & Improvements
-
-- **Enhanced Server Settings Input**: IP and port fields are now separated for easier configuration.  
-- **Help Menu Added**: Quickly access guidance and support directly within the app.  
-- **DeepSeek Integration**: Support for DeepSeek models is now included.  
-- **Clear All Chats Button**: Easily reset conversations with a single tap.  
-- **Improved Slide Menu**: Smoother navigation and enhanced usability.  
-- **New About Menu**: Get detailed app information conveniently in one place.  
-
-Stay tuned for more updates and improvements!
+---
 
 ## Features
 
@@ -69,7 +80,9 @@ Stay tuned for more updates and improvements!
 ### 🛠 Technical Highlights
 
 - **Open Source**: Transparent codebase, open for community contributions and audits.  
-- **LM Studio Integration**: Seamless connection with LM Studio's powerful language model capabilities.  
+- **LM Studio Integration**: Seamless connection with LM Studio's powerful language model capabilities.
+
+---
 
 ## Requirements
 
@@ -80,9 +93,13 @@ Before using LMWSA, ensure that the following requirements are met:
 - **Network Configuration**:  
   - CORS (Cross-Origin Resource Sharing) must be enabled in LM Studio settings to allow cross-origin requests from LMSA.
 
+---
+
 ## Installation
 
-1. Clone the repository:  
+To set up the LMSA application on your development environment:
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/CodeF0x/lmwsa.git
    ```
@@ -105,6 +122,8 @@ Before using LMWSA, ensure that the following requirements are met:
    - Tap 'Close' to save the settings.  
 8. **Interact with the Model**: Start interacting with the AI model through LMWSA's clean interface.
 
+---
+
 ## Configuration
 
 ### Setting the System Prompt
@@ -122,6 +141,8 @@ Before using LMWSA, ensure that the following requirements are met:
 
 The currently loaded model will be displayed at the top of the main interface.
 
+---
+
 ## Contributing
 
 We welcome contributions to LMWSA! If you'd like to contribute, please follow these steps:
@@ -132,10 +153,14 @@ We welcome contributions to LMWSA! If you'd like to contribute, please follow th
 4. Push your changes to your fork.  
 5. Submit a pull request to the main repository.
 
+---
+
 ## Disclaimer
 
 LMWSA is a third-party application and is not affiliated with LM Studio or its developers. This app is independently developed to provide a web front-end interface for interacting with LM Studio. Use of this app is at your own discretion, and the developers of LMSWA are not responsible for any issues arising from its use.
 
+---
+
 ## License
 
-LMWSA is released under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute the code as per the license terms.
+LMWSA is released under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute the code as per the license terms
