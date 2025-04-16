@@ -20,7 +20,7 @@
 
 | | |
 |:---:|:---|
-| [<img src="https://i.ibb.co/qH7rhGz/google-play-icon-transparent-5.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | LMSA is now available for download on the Google Play Store with exciting new features |
+| [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width: 200px; height: auto;">](https://play.google.com/store/apps/details?id=com.lmsa.app) | LMSA is now available for download on the Google Play Store with exciting new features |
 
 ## Latest Improvements
 
